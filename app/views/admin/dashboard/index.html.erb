@@ -1,0 +1,13 @@
+<!-- app/views/admin/dashboard/index.html.erb -->
+<h1>Admin Dashboard</h1>
+
+<div id="bookings-chart" style="height: 300px;"></div>
+
+<%= line_chart Booking.group_by_day(:created_at).count, title: "Bookings Over Time" %>
+
+<div>
+  <h2>Statistics</h2>
+  <p>Total Bookings: <%= @bookings_count %></p>
+  <p>Total Rooms: <%= @rooms_count %></p>
+  <p>Total Admin Users: <%= @admin_users_count %></p>
+</div>
